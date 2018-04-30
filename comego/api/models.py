@@ -43,13 +43,13 @@ class Actividad(models.Model):
     )
     category = models.ForeignKey(ActivityCategory, on_delete=models.CASCADE)
     title = models.CharField('Título', max_length=50)
+    start_date = models.DateField()
+    end_date = models.DateField()
     description = RichTextField()
     salon = models.ForeignKey(Salon, on_delete=models.CASCADE)
     dress_code = models.CharField('Código de vestir', choices=dress_options, max_length=50)
     academic_program_url = models.URLField('Url Programa Académico', blank=True)
     inscription_url = models.URLField('Url Inscripción', blank=True)
-    start_date = models.DateField()
-    end_date = models.DateField()
 
     class Meta:
         verbose_name_plural = 'Actividades'

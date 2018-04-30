@@ -72,7 +72,7 @@ class Podcast(models.Model):
     )
     title = models.CharField('Título', max_length=200)
     category = models.CharField(choices=category_options, max_length=50)
-    picture = models.ImageField()
+    picture = models.ImageField(null=True, blank=True)
     ordering = models.PositiveSmallIntegerField(default=0)
 
     class Meta:

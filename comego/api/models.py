@@ -9,7 +9,7 @@ class CategoryItem(models.Model):
 
     class Meta:
         verbose_name_plural = 'Categorias'
-        ordering = ['-ordering']
+        ordering = ['ordering']
 
     def __str__(self):
         return self.title
@@ -65,7 +65,7 @@ class Boletin(models.Model):
 
     class Meta:
         verbose_name_plural = 'Boletines'
-        ordering = ['-ordering']
+        ordering = ['ordering']
 
     def __str__(self):
         return self.title
@@ -77,7 +77,7 @@ class Guia(models.Model):
     ordering = models.PositiveSmallIntegerField(default=0)
 
     class Meta:
-        ordering = ['-ordering']
+        ordering = ['ordering']
 
     def __str__(self):
         return self.title
@@ -90,7 +90,7 @@ class Norma(models.Model):
     ordering = models.PositiveSmallIntegerField(default=0)
 
     class Meta:
-        ordering = ['-ordering']
+        ordering = ['ordering']
 
     def __str__(self):
         return self.title
@@ -102,7 +102,7 @@ class Reglamento(models.Model):
     ordering = models.PositiveSmallIntegerField(default=0)
 
     class Meta:
-        ordering = ['-ordering']
+        ordering = ['ordering']
 
     def __str__(self):
         return self.title
@@ -115,7 +115,7 @@ class Ley(models.Model):
 
     class Meta:
         verbose_name_plural = 'Leyes'
-        ordering = ['-ordering']
+        ordering = ['ordering']
 
     def __str__(self):
         return self.title
@@ -132,7 +132,7 @@ class Podcast(models.Model):
     ordering = models.PositiveSmallIntegerField(default=0)
 
     class Meta:
-        ordering = ['-ordering']
+        ordering = ['ordering']
 
     def __str__(self):
         return self.title

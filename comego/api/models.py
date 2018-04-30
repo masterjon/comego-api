@@ -5,9 +5,11 @@ from ckeditor.fields import RichTextField
 
 class CategoryItem(models.Model):
     title = models.CharField(max_length=50)
+    ordering = models.PositiveSmallIntegerField(default=0)
 
     class Meta:
         verbose_name_plural = 'Categorias'
+        ordering = ['-ordering']
 
     def __str__(self):
         return self.title

@@ -16,7 +16,7 @@ class Boletin(models.Model):
 
 class Guia(models.Model):
     title = models.CharField('Título', max_length=200)
-    url = models.URLField(blank=True)
+    url = models.URLField(blank=True, default='http://tv.comego.org.mx/')
     file = models.FileField(blank=True, null=True)
     ordering = models.PositiveSmallIntegerField(default=0)
 

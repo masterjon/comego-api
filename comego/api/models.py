@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 
 
@@ -17,7 +18,6 @@ class Boletin(models.Model):
 class Guia(models.Model):
     title = models.CharField('Título', max_length=200)
     url = models.URLField(blank=True, default='http://tv.comego.org.mx/')
-    file = models.FileField(blank=True, null=True)
     ordering = models.PositiveSmallIntegerField(default=0)
 
     class Meta:
@@ -63,3 +63,25 @@ class Ley(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Podcast(models.Model):
+    category_options = (
+        ('y_tu_como_lo_haces', 'Y tú como lo haces',),
+        ('informativo', 'Informativo',),
+    )
+    title = models.CharField('Título', max_length=200)
+    category = models.CharField(choices=category_options, max_length=50)
+    picture = models.ImageField()
+    ordering = models.PositiveSmallIntegerField(default=0)
+
+    class Meta:
+        ordering = ['-ordering']
+
+    def __str__(self):
+        return self.title
+
+
+class UrlItem(models.Model):
+    url = models.URLField()
+    podcast = models.ForeignKey(Podcast, on_delete=models.CASCADE)

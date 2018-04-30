@@ -9,7 +9,7 @@ class CustomIndexDashboard(Dashboard):
     def init_with_context(self, context):
         self.children.append(modules.ModelList(
             _('Publicaciones'),
-            models=('api.Boletin', 'api.Guia'),
+            models=('api.Boletin', 'api.Guia', 'api.Podcast'),
             column=3,
             order=0,
             layout='stacked'

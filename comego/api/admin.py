@@ -1,5 +1,25 @@
 from django.contrib import admin
-from .models import Boletin, Guia, Norma, Reglamento, Ley, Podcast, UrlItem
+from .models import CategoryItem, ActivityCategory, Salon, Actividad, Boletin, Guia, Norma, Reglamento, Ley, Podcast, UrlItem
+
+
+@admin.register(CategoryItem)
+class CategoryItemAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(ActivityCategory)
+class ActivityCategoryAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Salon)
+class SalonAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Actividad)
+class ActividadAdmin(admin.ModelAdmin):
+    pass
 
 
 class UrlItemInline(admin.StackedInline):

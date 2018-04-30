@@ -1,5 +1,59 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from ckeditor.fields import RichTextField
+
+
+class CategoryItem(models.Model):
+    title = models.CharField(max_length=50)
+
+    class Meta:
+        verbose_name_plural = 'Categorias'
+
+    def __str__(self):
+        return self.title
+
+
+class ActivityCategory(models.Model):
+    title = models.CharField(max_length=50)
+    category = models.ForeignKey(CategoryItem, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = 'Categorias de Actividades'
+
+    def __str__(self):
+        return self.title
+
+
+class Salon(models.Model):
+    title = models.CharField(max_length=50)
+
+    class Meta:
+        verbose_name_plural = 'Salones'
+
+    def __str__(self):
+        return self.title
+
+
+class Actividad(models.Model):
+    dress_options = (
+        ('formal', 'Formal',),
+        ('casual', 'Casual',)
+    )
+    category = models.ForeignKey(ActivityCategory, on_delete=models.CASCADE)
+    title = models.CharField('Título', max_length=50)
+    description = RichTextField()
+    salon = models.ForeignKey(Salon, on_delete=models.CASCADE)
+    dress_code = models.CharField('Código de vestir', choices=dress_options, max_length=50)
+    academic_program_url = models.URLField('Url Programa Académico', blank=True)
+    inscription_url = models.URLField('Url Inscripción', blank=True)
+    start_date = models.DateField()
+    end_date = models.DateField()
+
+    class Meta:
+        verbose_name_plural = 'Actividades'
+
+    def __str__(self):
+        return self.title
 
 
 class Boletin(models.Model):
@@ -83,5 +137,6 @@ class Podcast(models.Model):
 
 
 class UrlItem(models.Model):
+    title = models.CharField('Título', max_length=50)
     url = models.URLField()
     podcast = models.ForeignKey(Podcast, on_delete=models.CASCADE)

@@ -6,6 +6,11 @@ from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 router.register(r'boletines', views.BoletinViewSet)
+router.register(r'guias', views.GuiaViewSet)
+router.register(r'podcast', views.PodcastViewSet)
+router.register(r'leyes', views.LeyViewSet)
+router.register(r'normas', views.NormaViewSet)
+router.register(r'reglamentos', views.ReglamentoViewSet)
 # router.register(r'categories', views.AnimalCategoryViewSet, base_name='categories')
 # router.register(r'markers-categories', views.CategoryMarkerViewSet, base_name='categories_markers')
 

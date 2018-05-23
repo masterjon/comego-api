@@ -28,6 +28,8 @@ class UrlItemInline(admin.StackedInline):
 
 @admin.register(Podcast)
 class PodcastAdmin(admin.ModelAdmin):
+    list_display = ["title", "category"]
+    list_filter = ["category"]
     inlines = [UrlItemInline]
 
 

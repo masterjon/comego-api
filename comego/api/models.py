@@ -141,4 +141,4 @@ class Podcast(models.Model):
 class UrlItem(models.Model):
     title = models.CharField('Título', max_length=50)
     url = models.URLField()
-    podcast = models.ForeignKey(Podcast, on_delete=models.CASCADE)
+    podcast = models.ForeignKey(Podcast, related_name='parts', on_delete=models.CASCADE)

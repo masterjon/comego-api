@@ -1,4 +1,4 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, StringRelatedField
 from . import models
 
 
@@ -14,10 +14,18 @@ class GuiaSerializer(ModelSerializer):
         fields = '__all__'
 
 
+class PartsSerializers(ModelSerializer):
+    class Meta:
+        model = models.UrlItem
+        fields = '__all__'
+
+
 class PodcastSerializer(ModelSerializer):
+    parts = PartsSerializers(many=True)
+
     class Meta:
         model = models.Podcast
-        fields = '__all__'
+        fields = ('__all__')
 
 
 class LeySerializer(ModelSerializer):

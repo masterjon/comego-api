@@ -18,7 +18,7 @@ class CategoryItem(models.Model):
 
 class ActivityCategory(models.Model):
     title = models.CharField(max_length=50)
-    category = models.ForeignKey(CategoryItem, on_delete=models.CASCADE)
+    category = models.ForeignKey(CategoryItem, related_name='activity_category', on_delete=models.CASCADE)
 
     class Meta:
         verbose_name_plural = 'Categorias de Actividades'

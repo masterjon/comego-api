@@ -2,7 +2,15 @@ from rest_framework.serializers import ModelSerializer, StringRelatedField
 from . import models
 
 
+class ActividadSerializer(ModelSerializer):
+    class Meta:
+        model = models.Actividad
+        fields = '__all__'
+
+
 class ActivityCategorySerializer(ModelSerializer):
+    actividad = ActividadSerializer(many=True)
+
     class Meta:
         model = models.ActivityCategory
         fields = '__all__'

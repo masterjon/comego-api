@@ -42,7 +42,7 @@ class Actividad(models.Model):
         ('formal', 'Formal',),
         ('casual', 'Casual',)
     )
-    category = models.ForeignKey(ActivityCategory, on_delete=models.CASCADE)
+    category = models.ForeignKey(ActivityCategory, related_name='actividad', on_delete=models.CASCADE)
     title = models.CharField('Título', max_length=100)
     start_date = models.DateField()
     end_date = models.DateField()

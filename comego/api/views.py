@@ -2,6 +2,11 @@ from rest_framework.viewsets import ModelViewSet
 from . import serializers, models
 
 
+class CategoryItemViewSet(ModelViewSet):
+    queryset = models.CategoryItem.objects.all()
+    serializer_class = serializers.CategoryItemSerializer
+
+
 class BoletinViewSet(ModelViewSet):
     queryset = models.Boletin.objects.all()
     serializer_class = serializers.BoletinSerializer

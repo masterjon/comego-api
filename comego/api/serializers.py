@@ -2,6 +2,12 @@ from rest_framework.serializers import ModelSerializer, StringRelatedField
 from . import models
 
 
+class CategoryItemSerializer(ModelSerializer):
+    class Meta:
+        model = models.CategoryItem
+        fields = '__all__'
+
+
 class BoletinSerializer(ModelSerializer):
     class Meta:
         model = models.Boletin

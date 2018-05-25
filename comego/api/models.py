@@ -5,6 +5,7 @@ from ckeditor.fields import RichTextField
 
 class CategoryItem(models.Model):
     title = models.CharField(max_length=50)
+    picture = models.ImageField(null=True, blank=True)
     ordering = models.PositiveSmallIntegerField(default=0)
 
     class Meta:

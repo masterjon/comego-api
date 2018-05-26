@@ -1,15 +1,17 @@
-from rest_framework.serializers import ModelSerializer, StringRelatedField
+from rest_framework.serializers import ModelSerializer, ReadOnlyField
 from . import models
 
 
 class ActividadSerializer(ModelSerializer):
+    salon = ReadOnlyField(source='salon.title')
+
     class Meta:
         model = models.Actividad
         fields = '__all__'
 
 
 class ActivityCategorySerializer(ModelSerializer):
-    actividad = ActividadSerializer(many=True)
+    actividades = ActividadSerializer(many=True)
 
     class Meta:
         model = models.ActivityCategory

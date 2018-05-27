@@ -51,6 +51,7 @@ class Actividad(models.Model):
     dress_code = models.CharField('Código de vestir', choices=dress_options, max_length=50)
     academic_program_url = models.URLField('Url Programa Académico', blank=True)
     inscription_url = models.URLField('Url Inscripción', blank=True)
+    ordering = models.PositiveSmallIntegerField(default=0)
 
     class Meta:
         verbose_name_plural = 'Actividades'

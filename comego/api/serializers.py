@@ -18,10 +18,16 @@ class ActivityCategorySerializer(ModelSerializer):
         fields = '__all__'
 
 
-class CategoryItemSerializer(ModelSerializer):
+class CategoryNestedItemSerializer(ModelSerializer):
 
     activity_category = ActivityCategorySerializer(many=True)
 
+    class Meta:
+        model = models.CategoryItem
+        fields = '__all__'
+
+
+class CategoryItemSerializer(ModelSerializer):
     class Meta:
         model = models.CategoryItem
         fields = '__all__'

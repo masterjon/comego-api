@@ -5,7 +5,8 @@ from rest_framework.routers import DefaultRouter
 
 
 router = DefaultRouter()
-router.register(r'actividades', views.CategoryItemViewSet)
+router.register(r'actividades_simple', views.CategoryItemViewSet)
+router.register(r'actividades', views.CategoryNestedItemViewSet)
 router.register(r'boletines', views.BoletinViewSet)
 router.register(r'guias', views.GuiaViewSet)
 router.register(r'podcast', views.PodcastViewSet)

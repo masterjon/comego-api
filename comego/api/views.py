@@ -7,6 +7,11 @@ class CategoryItemViewSet(ModelViewSet):
     serializer_class = serializers.CategoryItemSerializer
 
 
+class CategoryNestedItemViewSet(ModelViewSet):
+    queryset = models.CategoryItem.objects.all()
+    serializer_class = serializers.CategoryNestedItemSerializer
+
+
 class BoletinViewSet(ModelViewSet):
     queryset = models.Boletin.objects.all()
     serializer_class = serializers.BoletinSerializer

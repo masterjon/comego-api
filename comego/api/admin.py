@@ -19,7 +19,7 @@ class SalonAdmin(admin.ModelAdmin):
 
 @admin.register(Actividad)
 class ActividadAdmin(admin.ModelAdmin):
-    pass
+    readonly_fields = ('month',)
 
 
 class UrlItemInline(admin.StackedInline):

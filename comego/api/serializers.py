@@ -1,9 +1,9 @@
-from rest_framework.serializers import IntegerField, DateField, Serializer, ModelSerializer, ReadOnlyField
+from rest_framework.serializers import CharField, IntegerField, DateField, Serializer, ModelSerializer, ReadOnlyField
 from . import models
 
 
 class ActividadSerializer(Serializer):
-    start_date = DateField()
+    month = CharField()
     count = IntegerField()
 
 

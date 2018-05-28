@@ -9,7 +9,7 @@ class ActivityDatesViewSet(ListAPIView):
     serializer_class = serializers.ActividadSerializer
 
     def get_queryset(self):
-        return models.Actividad.objects.values("start_date").annotate(count=Count("start_date"))
+        return models.Actividad.objects.values("month").annotate(count=Count("month"))
 
 
 class CategoryItemViewSet(ModelViewSet):

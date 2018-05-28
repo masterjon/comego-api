@@ -52,12 +52,17 @@ class Actividad(models.Model):
     academic_program_url = models.URLField('Url Programa Académico', blank=True)
     inscription_url = models.URLField('Url Inscripción', blank=True)
     ordering = models.PositiveSmallIntegerField(default=0)
+    month = models.CharField(max_length=50, null=False, blank=True, default='')
 
     class Meta:
         verbose_name_plural = 'Actividades'
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        self.month = self.start_date.strftime("%B")
+        super(Actividad, self).save(*args, **kwargs)
 
 
 class Boletin(models.Model):

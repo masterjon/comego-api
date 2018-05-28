@@ -2,9 +2,16 @@ from rest_framework.serializers import CharField, IntegerField, DateField, Seria
 from . import models
 
 
-class ActividadSerializer(Serializer):
-    month = CharField()
-    count = IntegerField()
+# class ActividadSerializer(Serializer):
+#     month = CharField()
+#     count = IntegerField()
+
+class ActividadSerializer(ModelSerializer):
+    category = ReadOnlyField(source='category.title')
+
+    class Meta:
+        model = models.Actividad
+        fields = ['id', 'title', 'start_date', 'end_date', 'category']
 
 
 class ActivityCategorySerializer(ModelSerializer):

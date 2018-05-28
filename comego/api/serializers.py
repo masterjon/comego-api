@@ -1,13 +1,10 @@
-from rest_framework.serializers import ModelSerializer, ReadOnlyField
+from rest_framework.serializers import IntegerField, DateField, Serializer, ModelSerializer, ReadOnlyField
 from . import models
 
 
-class ActividadSerializer(ModelSerializer):
-    salon = ReadOnlyField(source='salon.title')
-
-    class Meta:
-        model = models.Actividad
-        fields = '__all__'
+class ActividadSerializer(Serializer):
+    start_date = DateField()
+    count = IntegerField()
 
 
 class ActivityCategorySerializer(ModelSerializer):

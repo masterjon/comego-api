@@ -1,5 +1,15 @@
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.generics import ListAPIView
+from django.db.models import Count
+
 from . import serializers, models
+
+
+class ActivityDatesViewSet(ListAPIView):
+    serializer_class = serializers.ActividadSerializer
+
+    def get_queryset(self):
+        return models.Actividad.objects.values("start_date").annotate(count=Count("start_date"))
 
 
 class CategoryItemViewSet(ModelViewSet):

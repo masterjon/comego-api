@@ -5,6 +5,7 @@ from rest_framework.routers import DefaultRouter
 
 
 router = DefaultRouter()
+#router.register(r'activity_dates', views.ActivityDatesViewSet.as_view(), base_name='activity_dates')
 router.register(r'actividades_simple', views.CategoryItemViewSet)
 router.register(r'actividades', views.CategoryNestedItemViewSet)
 router.register(r'boletines', views.BoletinViewSet)
@@ -23,6 +24,7 @@ router.register(r'reglamentos', views.ReglamentoViewSet)
 urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^', include(router.urls)),
+    url(r'activity_dates', views.ActivityDatesViewSet.as_view())
     # url(r'^', include(category_router.urls)),
     # url(r'^related-animals/$', views.RelatedAnimalsView.as_view(), name='related_animals'),
 ]

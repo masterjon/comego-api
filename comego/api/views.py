@@ -12,9 +12,8 @@ from . import serializers, models
 #         return models.Actividad.objects.values("month").annotate(count=Count("month"))
 class ActivityViewSet(ModelViewSet):
     queryset = models.Actividad.objects.all()
-    serializer_class = serializers.ActividadSerializer
+    serializer_class = serializers.ActividadAllSerializer
 
-    
 
 class CategoryItemViewSet(ModelViewSet):
     queryset = models.CategoryItem.objects.all()

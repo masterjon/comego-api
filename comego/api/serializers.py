@@ -6,15 +6,11 @@ from . import models
 #     month = CharField()
 #     count = IntegerField()
 
-class ActividadAllSerializer(ModelSerializer):
-    category = ReadOnlyField(source='category.title')
-
-    class Meta:
-        model = models.Actividad
-        fields = ['id', 'title', 'start_date', 'end_date', 'category']
-
 
 class ActividadSerializer(ModelSerializer):
+    category = ReadOnlyField(source='category.title')
+    salon = ReadOnlyField(source='salon.title')
+
     class Meta:
         model = models.Actividad
         fields = '__all__'

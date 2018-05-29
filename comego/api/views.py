@@ -1,6 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.generics import ListAPIView
-from django.db.models import Count
+# from rest_framework.generics import ListAPIView
+# from django.db.models import Count
 
 from . import serializers, models
 
@@ -12,7 +12,7 @@ from . import serializers, models
 #         return models.Actividad.objects.values("month").annotate(count=Count("month"))
 class ActivityViewSet(ModelViewSet):
     queryset = models.Actividad.objects.all()
-    serializer_class = serializers.ActividadAllSerializer
+    serializer_class = serializers.ActividadSerializer
 
 
 class CategoryItemViewSet(ModelViewSet):

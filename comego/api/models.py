@@ -149,3 +149,17 @@ class UrlItem(models.Model):
     title = models.CharField('Título', max_length=50)
     url = models.URLField()
     podcast = models.ForeignKey(Podcast, related_name='parts', on_delete=models.CASCADE)
+
+
+class Sponsor(models.Model):
+    title = models.CharField('Título', max_length=50)
+    description = models.TextField(blank=True)
+    link = models.URLField()
+    picture = models.ImageField(null=True, blank=True)
+    ordering = models.PositiveSmallIntegerField(default=0)
+
+    class Meta:
+        ordering = ['ordering']
+
+    def __str__(self):
+        return self.title

@@ -1,4 +1,4 @@
-from rest_framework.serializers import CharField, IntegerField, DateField, Serializer, ModelSerializer, ReadOnlyField
+from rest_framework.serializers import ModelSerializer, ReadOnlyField
 from . import models
 
 
@@ -80,4 +80,10 @@ class NormaSerializer(ModelSerializer):
 class ReglamentoSerializer(ModelSerializer):
     class Meta:
         model = models.Reglamento
+        fields = '__all__'
+
+
+class SponsorSerializer(ModelSerializer):
+    class Meta:
+        model = models.Sponsor
         fields = '__all__'

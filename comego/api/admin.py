@@ -1,58 +1,63 @@
 from django.contrib import admin
-from .models import CategoryItem, ActivityCategory, Salon, Actividad, Boletin, Guia, Norma, Reglamento, Ley, Podcast, UrlItem
+from . import models
 
 
-@admin.register(CategoryItem)
+@admin.register(models.CategoryItem)
 class CategoryItemAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(ActivityCategory)
+@admin.register(models.ActivityCategory)
 class ActivityCategoryAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(Salon)
+@admin.register(models.Salon)
 class SalonAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(Actividad)
+@admin.register(models.Actividad)
 class ActividadAdmin(admin.ModelAdmin):
     readonly_fields = ('month',)
 
 
 class UrlItemInline(admin.StackedInline):
-    model = UrlItem
+    model = models.UrlItem
 
 
-@admin.register(Podcast)
+@admin.register(models.Podcast)
 class PodcastAdmin(admin.ModelAdmin):
     list_display = ["title", "category"]
     list_filter = ["category"]
     inlines = [UrlItemInline]
 
 
-@admin.register(Boletin)
+@admin.register(models.Boletin)
 class BoletinAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(Guia)
+@admin.register(models.Guia)
 class GuiaAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(Norma)
+@admin.register(models.Norma)
 class NormaAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(Reglamento)
+@admin.register(models.Reglamento)
 class ReglamentoAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(Ley)
+@admin.register(models.Ley)
 class LeyAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(models.Sponsor)
+class SponsorAdmin(admin.ModelAdmin):
     pass

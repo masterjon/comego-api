@@ -53,3 +53,8 @@ class NormaViewSet(ModelViewSet):
 class ReglamentoViewSet(ModelViewSet):
     queryset = models.Reglamento.objects.all()
     serializer_class = serializers.ReglamentoSerializer
+
+
+class SponsorViewSet(ModelViewSet):
+    queryset = models.Sponsor.objects.all()
+    serializer_class = serializers.SponsorSerializer

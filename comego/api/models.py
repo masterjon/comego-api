@@ -7,6 +7,7 @@ class CategoryItem(models.Model):
     title = models.CharField(max_length=50)
     picture = models.ImageField(null=True, blank=True)
     ordering = models.PositiveSmallIntegerField(default=0)
+    link = models.URLField(blank=True)
 
     class Meta:
         verbose_name_plural = 'Categorias'

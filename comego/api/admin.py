@@ -20,6 +20,8 @@ class SalonAdmin(admin.ModelAdmin):
 @admin.register(models.Actividad)
 class ActividadAdmin(admin.ModelAdmin):
     readonly_fields = ('month',)
+    list_display = ["title", "category", "start_date", "ordering"]
+    list_filter = ["category"]
 
 
 class UrlItemInline(admin.StackedInline):

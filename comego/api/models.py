@@ -7,7 +7,7 @@ class CategoryItem(models.Model):
     title = models.CharField(max_length=50)
     picture = models.ImageField(null=True, blank=True)
     ordering = models.PositiveSmallIntegerField(default=0)
-    link = models.URLField(blank=True)
+    link = models.URLField(blank=True, max_length=500)
 
     class Meta:
         verbose_name_plural = 'Categorias'
@@ -50,8 +50,8 @@ class Actividad(models.Model):
     description = RichTextField()
     salon = models.ForeignKey(Salon, on_delete=models.CASCADE)
     dress_code = models.CharField('Código de vestir', choices=dress_options, max_length=50)
-    academic_program_url = models.URLField('Url Programa Académico', blank=True)
-    inscription_url = models.URLField('Url Inscripción', blank=True)
+    academic_program_url = models.URLField('Url Programa Académico', blank=True, max_length=500)
+    inscription_url = models.URLField('Url Inscripción', blank=True, max_length=500)
     ordering = models.PositiveSmallIntegerField(default=0)
     month = models.CharField(max_length=50, null=False, blank=True, default='')
 
@@ -69,7 +69,7 @@ class Actividad(models.Model):
 
 class Boletin(models.Model):
     title = models.CharField('Título', max_length=50)
-    url = models.URLField(blank=True)
+    url = models.URLField(blank=True, max_length=500)
     ordering = models.PositiveSmallIntegerField(default=0)
 
     class Meta:
@@ -82,7 +82,7 @@ class Boletin(models.Model):
 
 class Guia(models.Model):
     title = models.CharField('Título', max_length=200)
-    url = models.URLField(blank=True, default='http://tv.comego.org.mx/')
+    url = models.URLField(blank=True, default='http://tv.comego.org.mx/', max_length=500)
     ordering = models.PositiveSmallIntegerField(default=0)
 
     class Meta:
@@ -95,7 +95,7 @@ class Guia(models.Model):
 class Norma(models.Model):
     title = models.CharField('Título', max_length=200)
     description = models.TextField(blank=True)
-    url = models.URLField(blank=True)
+    url = models.URLField(blank=True, max_length=500)
     ordering = models.PositiveSmallIntegerField(default=0)
 
     class Meta:
@@ -107,7 +107,7 @@ class Norma(models.Model):
 
 class Reglamento(models.Model):
     title = models.CharField('Título', max_length=200)
-    url = models.URLField(blank=True)
+    url = models.URLField(blank=True, max_length=500)
     ordering = models.PositiveSmallIntegerField(default=0)
 
     class Meta:
@@ -119,7 +119,7 @@ class Reglamento(models.Model):
 
 class Ley(models.Model):
     title = models.CharField('Título', max_length=200)
-    url = models.URLField(blank=True)
+    url = models.URLField(blank=True, max_length=500)
     ordering = models.PositiveSmallIntegerField(default=0)
 
     class Meta:
@@ -149,14 +149,14 @@ class Podcast(models.Model):
 
 class UrlItem(models.Model):
     title = models.CharField('Título', max_length=50)
-    url = models.URLField()
+    url = models.URLField(max_length=500)
     podcast = models.ForeignKey(Podcast, related_name='parts', on_delete=models.CASCADE)
 
 
 class Sponsor(models.Model):
     title = models.CharField('Título', max_length=50)
     description = models.TextField(blank=True)
-    link = models.URLField()
+    link = models.URLField(max_length=500)
     picture = models.ImageField(null=True, blank=True)
     ordering = models.PositiveSmallIntegerField(default=0)
 

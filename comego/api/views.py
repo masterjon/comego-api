@@ -30,6 +30,10 @@ class BoletinViewSet(ModelViewSet):
     serializer_class = serializers.BoletinSerializer
 
 
+class AnuncioViewSet(ModelViewSet):
+    queryset = models.Anuncio.objects.all()
+    serializer_class = serializers.AnuncioSerializer
+
 class GuiaViewSet(ModelViewSet):
     queryset = models.Guia.objects.all()
     serializer_class = serializers.GuiaSerializer

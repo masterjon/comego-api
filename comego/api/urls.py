@@ -5,7 +5,6 @@ from rest_framework.routers import DefaultRouter
 
 
 router = DefaultRouter()
-#router.register(r'activity_dates', views.ActivityDatesViewSet.as_view(), base_name='activity_dates')
 router.register(r'actividades_all', views.ActivityViewSet)
 router.register(r'actividades_simple', views.CategoryItemViewSet)
 router.register(r'actividades', views.CategoryNestedItemViewSet)
@@ -16,6 +15,7 @@ router.register(r'leyes', views.LeyViewSet)
 router.register(r'normas', views.NormaViewSet)
 router.register(r'reglamentos', views.ReglamentoViewSet)
 router.register(r'sponsors', views.SponsorViewSet)
+router.register(r'anuncios', views.AnuncioViewSet)
 # router.register(r'categories', views.AnimalCategoryViewSet, base_name='categories')
 # router.register(r'markers-categories', views.CategoryMarkerViewSet, base_name='categories_markers')
 

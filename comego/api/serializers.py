@@ -87,3 +87,9 @@ class SponsorSerializer(ModelSerializer):
     class Meta:
         model = models.Sponsor
         fields = '__all__'
+
+
+class AnuncioSerializer(ModelSerializer):
+    class Meta:
+        model = models.Anuncio
+        fields = '__all__'

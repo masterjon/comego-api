@@ -63,3 +63,8 @@ class LeyAdmin(admin.ModelAdmin):
 @admin.register(models.Sponsor)
 class SponsorAdmin(admin.ModelAdmin):
     pass
+
+
+@admin.register(models.Anuncio)
+class AnuncioAdmin(admin.ModelAdmin):
+    pass

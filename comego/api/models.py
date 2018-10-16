@@ -67,6 +67,21 @@ class Actividad(models.Model):
         super(Actividad, self).save(*args, **kwargs)
 
 
+class Presentacion(models.Model):
+    actividad = models.ForeignKey(Actividad, related_name='presentaciones', on_delete=models.CASCADE)
+    title = models.CharField('Título', max_length=300)
+    doctor = models.CharField(max_length=100)
+    horario = models.CharField(max_length=100)
+    pdf = models.FileField(null=True, blank=True)
+    ordering = models.PositiveSmallIntegerField(default=0)
+
+    class Meta:
+        ordering = ['ordering']
+
+    def __str__(self):
+        return self.title
+
+
 class Boletin(models.Model):
     title = models.CharField('Título', max_length=50)
     url = models.URLField(blank=True, max_length=500)

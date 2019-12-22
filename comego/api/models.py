@@ -13,6 +13,12 @@ class CategoryItem(models.Model):
         verbose_name_plural = 'Categorias'
         ordering = ['ordering']
 
+    def delete(self, *args, **kwargs):
+        print("deleting...")
+        if self.pk == 3 or self.pk == 25:
+            return
+        super(CategoryItem, self).delete(*args, **kwargs)
+
     def __str__(self):
         return self.title
 

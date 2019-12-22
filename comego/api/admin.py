@@ -4,7 +4,7 @@ from . import models
 
 @admin.register(models.CategoryItem)
 class CategoryItemAdmin(admin.ModelAdmin):
-    pass
+    actions = None
 
 
 @admin.register(models.ActivityCategory)
